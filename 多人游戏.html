@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>多人游戏</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/多人游戏/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="resources/scripts/axure/axQuery.js"></script>
+    <script src="resources/scripts/axure/globals.js"></script>
+    <script src="resources/scripts/axutils.js"></script>
+    <script src="resources/scripts/axure/annotation.js"></script>
+    <script src="resources/scripts/axure/axQuery.std.js"></script>
+    <script src="resources/scripts/axure/doc.js"></script>
+    <script src="resources/scripts/messagecenter.js"></script>
+    <script src="resources/scripts/axure/events.js"></script>
+    <script src="resources/scripts/axure/recording.js"></script>
+    <script src="resources/scripts/axure/action.js"></script>
+    <script src="resources/scripts/axure/expr.js"></script>
+    <script src="resources/scripts/axure/geometry.js"></script>
+    <script src="resources/scripts/axure/flyout.js"></script>
+    <script src="resources/scripts/axure/model.js"></script>
+    <script src="resources/scripts/axure/repeater.js"></script>
+    <script src="resources/scripts/axure/sto.js"></script>
+    <script src="resources/scripts/axure/utils.temp.js"></script>
+    <script src="resources/scripts/axure/variables.js"></script>
+    <script src="resources/scripts/axure/drag.js"></script>
+    <script src="resources/scripts/axure/move.js"></script>
+    <script src="resources/scripts/axure/visibility.js"></script>
+    <script src="resources/scripts/axure/style.js"></script>
+    <script src="resources/scripts/axure/adaptive.js"></script>
+    <script src="resources/scripts/axure/tree.js"></script>
+    <script src="resources/scripts/axure/init.temp.js"></script>
+    <script src="resources/scripts/axure/legacy.js"></script>
+    <script src="resources/scripts/axure/viewer.js"></script>
+    <script src="resources/scripts/axure/math.js"></script>
+    <script src="resources/scripts/axure/jquery.nicescroll.min.js"></script>
+    <script src="data/document.js"></script>
+    <script src="files/多人游戏/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>中秋博饼</title>
+
+    <style>
+      * { margin: 0;  padding: 0;font-family:'微软雅黑', '华文细黑', Arial; }
+      #tu { width:20%; margin-top:12%;margin-left: 40%}
+      #tu img { margin-left:10%; width:20%;float:left}
+      #share img {margin-left:20%; width:20%; float:left }
+    </style>
+
+  </head>
+
+  <body style="background:url(images/background.jpg);
+ 			 width:100%;
+  		     background-repeat:no-repeat;
+  		     background-size:100%;
+			 background-attachment:fixed;">
+
+  <div id="tu">
+    <img src="images/1.png" />
+    <img src="images/2.png" />
+    <img src="images/3.png" />
+    <img src="images/4.png" />
+    <img src="images/5.png" />
+    <img src="images/6.png" />
+
+  </div>
+
+
+
+
+
+  <div style="clear:both"></div>
+  <div id="start" style="text-align:center; display:block; margin-top:30px">
+    <img src="images/start.png" style="width:30% ; position:absolute;left:520px;top:400px;margin:0 auto" />
+
+  </div>
+  <div id="share" style="display:none; width:100%; margin-top:30px">
+    <img id="restart" src="images/button1.png" />
+    <img id="fenxiang" src="images/button2.png" />
+  </div>
+
+  <script type="text/javascript">
+    var obj=[
+      {"guan":"秀才","shuo":"一秀","number":"436253"},
+      {"guan":"举人","shuo":"二举","number":"434265"},
+      {"guan":"进士","shuo":"四进","number":"242261"},
+      {"guan":"探花","shuo":"三红","number":"441246"},
+      {"guan":"榜眼","shuo":"对堂","number":"431256"},
+      {"guan":"状元","shuo":"四红","number":"144443"},
+      {"guan":"状元","shuo":"五子","number":"444344"},
+      {"guan":"状元","shuo":"五红","number":"666656"},
+      {"guan":"状元","shuo":"黑六勃","number":"222222"},
+      {"guan":"状元","shuo":"遍地锦","number":"111111"},
+      {"guan":"状元","shuo":"红六勃","number":"444444"},
+      {"guan":"状元","shuo":"插金花","number":"144414"},
+    ]
+
+    var res=Math.round(12*(Math.random()));
+    var oDiv=document.getElementById('tu');
+    var aDiv=oDiv.getElementsByTagName('img');
+    var timer='';
+    var temp=0;
+
+    var start=document.getElementById('start');
+    var share=document.getElementById('share');
+    var restart=document.getElementById('restart');
+    var fenxiang=document.getElementById('fenxiang');
+
+    start.onclick=function(){
+      clearInterval(timer);
+      timer=setInterval(function(){
+        for( var i=0; i<6; i++)
+        {
+          var a='';
+          a+=Math.ceil(Math.random()*6);
+          aDiv[i].src="images/"+a+".png"
+
+        }
+
+        temp++;
+        if (temp>50)
+        {
+          clearInterval(timer);
+          var s=obj[res].number.toString();
+          var arr=s.split('');
+          for(var i=0; i<aDiv.length; i++)
+          {
+            aDiv[i].src="images/"+arr[i]+".png"
+          }
+          var contant='<p style="color:#fff; font-size:16px; margin-top:30px">恭喜您获得了';
+          contant+= '<span style="color:red; font-size:20px">'
+          contant+=obj[res].guan+":"+obj[res].shuo;
+          contant+='</span></p>';
+          start.innerHTML=contant
+          share.style.display="block"
+        }
+        restart.onclick=function(){
+          window.location.reload();
+        }
+        fenxiang.onclick=function(){
+          fuceng.style.display="block";
+          tishi.style.display="block";
+        }
+        fuceng.onclick=function(){
+          fuceng.style.display="none";
+          tishi.style.display="none";
+        }
+        tishi.onclick=function(){
+          fuceng.style.display="none";
+          tishi.style.display="none";
+        }
+      },30)
+
+    }
+
+
+  </script>
+  <a href="首页.html">
+    <img src="images/back.png"; width="100" height="100" align="right" />
+  </a>
+
+
+  </div>
+  </body>
+
+
+
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u10" class="ax_default _图片_">
+        <img id="u10_img" class="img " src="images/多人游戏/id4.png"/ style="margin: -200px 300px ">
+        <div id="u10_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u11" class="ax_default _二级标题">
+        <div id="u11_div" class=""></div>
+        <div id="u11_text" class="text " style="margin: -200px 300px ">
+          <p><span>玩家4</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u12" class="ax_default _二级标题">
+        <div id="u12_div" class=""></div>
+        <div id="u12_text" class="text " style="margin: -300px 220px ">
+          <p><span>玩家1</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u13" class="ax_default _图片_">
+        <img id="u13_img" class="img " src="images/多人游戏/id3.png" style="margin: -300px 400px "/>
+        <div id="u13_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u14" class="ax_default _图片_">
+        <img id="u14_img" class="img " src="images/多人游戏/id2.png" style="margin: -300px 100px "/>
+        <div id="u14_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u15" class="ax_default _二级标题">
+        <div id="u15_div" class=""></div>
+        <div id="u15_text" class="text " style="margin: -300px 100px ">
+          <p><span>玩家2</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u16" class="ax_default _二级标题">
+        <div id="u16_div" class=""></div>
+        <div id="u16_text" class="text " style="margin: -300px 400px ">
+          <p><span>玩家3</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (图片 ) -->
+      <div id="u17" class="ax_default _图片_">
+        <img id="u17_img" class="img " src="images/多人游戏/id1.png" style="margin: -300px 220px "/>
+        <div id="u17_text" class="text " style="display:none; visibility: hidden">
+          <p></p>
+        </div>
+      </div>
+
+      <img src="images/mark.png" style="margin: -300px 10px -0px">
+
+
+    </div>
+    <script src="resources/scripts/axure/ios.js"></script>
+  </body>
+</html>
